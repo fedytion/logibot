@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>LogiBot - Пропозиція перевезення</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #282828;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            color: #1e88e5;
+            margin-bottom: 20px;
+        }
+        .price {
+            font-size: 20px;
+            color: #43a047;
+            font-weight: bold;
+        }
+        .route {
+            font-size: 15px;
+            color: #201c1c;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 13px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 class="header">Вітаємо, {{name}}!</h2>
+    <p>Ми — команда <strong>LogiBot</strong>, займаємось логістичними перевезеннями.</p>
+    <p>З радістю повідомляємо, що можемо виконати ваш запит.</p>
+
+    <p class="route">Маршрут: {{route}}</p>
+    <p>Вартість перевезення складає:</p>
+    <p class="price">{{price}} €</p>
+
+    <p>Ціна може змінюватися залежно від ваги, обʼєму вантажу та терміновості доставки.</p>
+    <p>Якщо вас влаштовують умови — просто відповідайте на цей лист, і ми все організуємо.</p>
+
+    <div class="footer">
+        З повагою,<br>
+        Команда LogiBot<br>
+        support@logibot.com
+    </div>
+</div>
+</body>
+</html>
