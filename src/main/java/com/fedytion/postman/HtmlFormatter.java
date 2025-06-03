@@ -14,7 +14,7 @@ public class HtmlFormatter {
         return INSTANCE;
     }
 
-    public String getFormattedHtml(String price, RouteInfo route, String name) {
-        return generateEmail(price, route, name);
+    public String getFormattedHtml(String price, RouteInfo route) {
+        return generateEmail(price, route);
     }
 }
