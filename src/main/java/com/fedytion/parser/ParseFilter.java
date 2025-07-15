@@ -1,5 +1,6 @@
 package com.fedytion.parser;
 
+import com.fedytion.emaillog.EmailLogService;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
@@ -43,6 +44,10 @@ public class ParseFilter {
     private boolean checkBodyType(Elements elements) {
 //        <span data-testid="VehicleRequirementsView/vehicleBody">Curtain</span>
         return false;
+    }
+
+    private boolean checkEmail(String email) {
+        return EmailLogService.alreadySent(email);
     }
 
 
