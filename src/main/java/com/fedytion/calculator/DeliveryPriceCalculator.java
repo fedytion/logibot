@@ -12,6 +12,6 @@ public class DeliveryPriceCalculator {
 
     public String calculatePrice(String from, String to) throws IOException {
         double distance = distanceService.getDistance(from, to);
-        return (int) (distance * COEFFICIENT) + "";
+        return (((int) (distance * COEFFICIENT) + 9) / 10) * 10 + "";
     }
 }

@@ -3,6 +3,7 @@ package com.fedytion.processor;
 
 import com.fedytion.calculator.DeliveryPriceCalculator;
 import com.fedytion.calculator.GoogleApiDistanceService;
+import com.fedytion.emaillog.EmailLogService;
 import com.fedytion.parser.*;
 import com.fedytion.postman.EmailService;
 import com.fedytion.postman.HtmlFormatter;
@@ -34,10 +35,13 @@ public class OfferProcessor {
 
         HtmlParser htmlParser = new HtmlParser(doc);
         ParseFilter parseFilter = new ParseFilter(doc);
+        ParsedInfo parsedInfo = htmlParser.parseHtml();
 
-        if (!parseFilter.shouldSkip()) {
+        if (EmailLogService.alreadySent("natalia.test.recipient@gmail.com")) { // parsedInfo.contacts().email()
+            System.out.println("Користувач вже існує");
 
-            ParsedInfo parsedInfo = htmlParser.parseHtml();
+        } else if (!parseFilter.shouldSkip()) {
+            EmailLogService.addEmail("natalia.test.recipient@gmail.com"); // parsedInfo.contacts().email()
             String price = parsedInfo.originalPrice().price();
 
             if (price.equals("0")) {
@@ -48,8 +52,6 @@ public class OfferProcessor {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
-            } else {
-                price = parsedInfo.originalPrice().toString();
             }
 
             Session session = MailUtil.getInstance().getSession(SENDER_EMAIL);
